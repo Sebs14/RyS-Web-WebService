@@ -1,13 +1,13 @@
-package com.rys.rystransports;
+package com.aca.rystransportes;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RySTransportsApplication {
+public class RySTransportesApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RySTransportsApplication.class, args);
+		SpringApplication.run(RySTransportesApplication.class, args);
 	}
 
 }
