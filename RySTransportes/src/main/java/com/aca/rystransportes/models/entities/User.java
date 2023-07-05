@@ -1,59 +1,49 @@
 package com.aca.rystransportes.models.entities;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
-@Entity(name="users")
+@Entity
+@Table(name = "users")
 public class User implements Serializable {
-    private static final long serialVersionUID = 1L;
-
     @Id
-    @Column(name="dui")
-    @SequenceGenerator(name = "users_id_user_seq", sequenceName = "users_id_user_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_id_user_seq")
-    private Long id;
+    String dui;
 
-    @Column(name = "email")
-    private String email;
+    String name;
 
-    @Column(name = "password")
-    private String password;
+    String password;
 
-    @Column(name = "name")
-    private String name;
+    String nit;
 
-    //Constructors
+    String rol;
 
+    String phone;
 
-    public User(Long id, String email, String password, String name) {
-        this.id = id;
-        this.email = email;
-        this.password = password;
+    Date startdate;
+
+    String email;
+
+    String address;
+
+    public String getDui() {
+        return dui;
+    }
+
+    public void setDui(String dui) {
+        this.dui = dui;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
-    }
-
-    public User() {
-        super();
-    }
-
-    //Getters and setters
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getPassword() {
@@ -64,11 +54,51 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public String getName() {
-        return name;
+    public String getNit() {
+        return nit;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNit(String nit) {
+        this.nit = nit;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Date getStartdate() {
+        return startdate;
+    }
+
+    public void setStartdate(Date startdate) {
+        this.startdate = startdate;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

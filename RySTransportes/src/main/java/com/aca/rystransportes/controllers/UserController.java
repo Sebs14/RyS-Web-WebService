@@ -1,44 +1,44 @@
 package com.aca.rystransportes.controllers;
 
-import com.aca.rystransportes.models.entities.User;
 import com.aca.rystransportes.services.UserService;
+import com.aca.rystransportes.services.impls.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import com.aca.rystransportes.models.entities.User;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins = "*")
 public class UserController {
-
     @Autowired
-    UserService userService;
+    UserServiceImpl userService;
 
-    @GetMapping("/all")
-    public ResponseEntity<List<User>> findAllUsers() {
+    @GetMapping()
+    public List<User> showUser() {
+        return userService.getAllUser();
+    }
 
-        try {
-            User userAuth = userService.getUserAuthenticated();
-            System.out.println(userAuth.getName());
+    @GetMapping("/{id}")
+    public User getUser(@PathVariable String dui) {
+        return userService.getUserById(dui);
+    }
 
-            List<User> users = userService.findAll();
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping()
+    public User createUser(@RequestBody User user) {
+        return userService.createUser(user);
+    }
 
-            return new ResponseEntity<>(
-                    users,
-                    HttpStatus.OK
-            );
+    @PutMapping()
+    public User updateUser(@RequestBody User user) {
+        return userService.updateUser(user);
+    }
 
-        } catch (Exception e) {
-            return new ResponseEntity<>(
-                    null,
-                    HttpStatus.INTERNAL_SERVER_ERROR
-            );
-        }
+    @DeleteMapping(value = "{id}")
+    public @ResponseBody String deleteUser(@PathVariable("id")  String dui ) {
+        userService.deleteUser(dui);
+        return null;
     }
 }

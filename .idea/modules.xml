@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/RyS-Web-Service.iml" filepath="$PROJECT_DIR$/.idea/RyS-Web-Service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RySTransportes/RySTransportes.iml" filepath="$PROJECT_DIR$/RySTransportes/RySTransportes.iml" />
+    </modules>
+  </component>
+</project>
