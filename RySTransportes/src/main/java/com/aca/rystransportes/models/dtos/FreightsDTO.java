@@ -3,6 +3,7 @@ package com.aca.rystransportes.models.dtos;
 import java.util.Date;
 
 public class FreightsDTO {
+	
 	Integer idFreight;
 
     Integer clients;
@@ -10,8 +11,6 @@ public class FreightsDTO {
     String units;
 
     Date date;
-
-    String client;
 
     String tonage;
 
@@ -34,7 +33,6 @@ public class FreightsDTO {
 		this.clients = clients;
 		this.units = units;
 		this.date = date;
-		this.client = client;
 		this.tonage = tonage;
 		this.destination = destination;
 		this.type = type;
@@ -74,13 +72,6 @@ public class FreightsDTO {
 		this.date = date;
 	}
 
-	public String getClient() {
-		return client;
-	}
-
-	public void setClient(String client) {
-		this.client = client;
-	}
 
 	public String getTonage() {
 		return tonage;

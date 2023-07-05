@@ -39,7 +39,7 @@ public class FreightsServiceImpl implements FreightsService {
     }
 
     @Override
-    public void createFreights(FreightsDTO freights) throws Exception {
+    public void createFreights(FreightsDTO freights){
     	
     	Freights freight = new Freights();
     	
@@ -47,7 +47,7 @@ public class FreightsServiceImpl implements FreightsService {
     	Units unit = unitService.getUnitsById(freights.getUnits());
     	System.out.println(client.getIdClient());
     	
-    	freight.setIdFreight(freights.getIdFreight());
+    	
     	freight.setUnits(unit);
     	freight.setDate(freights.getDate());
     	freight.setClients(client);
