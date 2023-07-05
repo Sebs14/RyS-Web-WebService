@@ -12,9 +12,9 @@ public interface FreightsService {
 
     public List<Freights> getAllFreights();
 
-    public void createFreights(FreightsDTO freights)  throws Exception;
+    public void createFreights(FreightsDTO freights);
 
-    public void updateFreights(FreightsDTO freights)  throws Exception;
+    public void updateFreights(FreightsDTO freights);
 
     public void deleteFreights(Integer id);
 

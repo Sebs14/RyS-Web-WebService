@@ -35,7 +35,8 @@ public class FreightsController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping()
     public ResponseEntity<MessageDTO> createdFreights(@Valid FreightsDTO freights, BindingResult result) {
-        try {
+    	freightsService.createFreights(freights);
+    	try {
             if(result.hasErrors()) {
                 String errors = result.getAllErrors().toString();
 
@@ -54,7 +55,7 @@ public class FreightsController {
 
         } catch (Exception e) {
             return new ResponseEntity<>(
-                    new MessageDTO("Error interno "+ e.getMessage()+" "+ freights.getUnits()),
+                    new MessageDTO("Error interno "+ e + " "+ freights.getUnits()),
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -82,7 +83,7 @@ public class FreightsController {
 
         } catch (Exception e) {
             return new ResponseEntity<>(
-                    new MessageDTO("Error interno "+ e.getMessage()+" " + freights.getClient()),
+                    new MessageDTO("Error interno "+ e.getMessage()+" " + freights.getClients()),
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
