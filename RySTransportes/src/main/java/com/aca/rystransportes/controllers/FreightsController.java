@@ -18,6 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/freights")
+@CrossOrigin
 public class FreightsController {
     @Autowired
     FreightsServiceImpl freightsService;
