@@ -1,5 +1,6 @@
 package com.aca.rystransportes.services;
 
+import com.aca.rystransportes.models.dtos.UnitInfo;
 import com.aca.rystransportes.models.entities.Units;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +11,7 @@ public interface UnitsService {
 
     public List<Units> getAllUnits();
 
-    public Units CreateUnits(Units units);
+    void createUnits(UnitInfo unitInfo) throws Exception;
 
     public Units UpdateUnits(Units units);
 

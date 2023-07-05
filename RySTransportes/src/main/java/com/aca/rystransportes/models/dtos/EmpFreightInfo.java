@@ -2,25 +2,28 @@ package com.aca.rystransportes.models.dtos;
 
 import com.aca.rystransportes.models.entities.Freights;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.validation.constraints.NotBlank;
 
 import java.util.Date;
 
 public class EmpFreightInfo {
 
+    @NotBlank
     private Freights freight;
 
-
+    @NotBlank
     private String position;
 
-
+    @NotBlank
     private float payment;
 
-
+    @NotBlank
     private float viatic;
 
-
+    @NotBlank
     private float extraPayment;
 
+    @NotBlank
     private Date freightdate;
 
     //Constructors
