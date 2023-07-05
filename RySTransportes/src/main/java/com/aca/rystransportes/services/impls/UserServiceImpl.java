@@ -15,6 +15,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -43,9 +45,15 @@ public class UserServiceImpl implements UserService {
 
         String encryptedPassword = passEncoder.encode(userInfo.getPassword());
 
-        user.setEmail(userInfo.getEmail());
-        user.setPassword(encryptedPassword);
+        user.setDui(userInfo.getDui());
         user.setName(userInfo.getName());
+        user.setPassword(encryptedPassword);
+        user.setNit(userInfo.getNit());
+        user.setRol(userInfo.getRol());
+        user.setPhone(userInfo.getPhone());
+        user.setStartdate(userInfo.getStartdate());
+        user.setEmail(userInfo.getEmail());
+        user.setAddress(userInfo.getAddress());
 
         userRepository.save(user);
 

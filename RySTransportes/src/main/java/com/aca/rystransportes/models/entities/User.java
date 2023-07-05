@@ -31,7 +31,7 @@ public class User {
     @Column(name = "phone")
     String phone;
 
-    @Column(name = "startdate", insertable = false, updatable = false)
+    @Column(name = "startdate")
     Date startdate;
 
     @Column(name = "email")

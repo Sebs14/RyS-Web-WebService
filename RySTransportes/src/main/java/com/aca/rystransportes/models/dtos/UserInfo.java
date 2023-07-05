@@ -24,7 +24,7 @@ public class UserInfo {
     @NotBlank
     private String phone;
 
-    @NotBlank
+    //@NotBlank
     private Date startdate;
 
     @NotBlank
