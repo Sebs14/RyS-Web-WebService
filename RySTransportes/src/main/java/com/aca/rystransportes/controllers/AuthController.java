@@ -43,7 +43,7 @@ public class AuthController {
 
             User foundUser = userService
                     .findOneByEmail(userInfo.getEmail());
-
+            System.out.println(foundUser);
             if(foundUser != null) {
                 return new ResponseEntity<>(
                         new MessageDTO("Este usuario ya existe"),
