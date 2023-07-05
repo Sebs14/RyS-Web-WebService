@@ -44,18 +44,11 @@ public class UnitsController {
                 );
             }
 
-            Units foundUnit = unitService.getUnitsById(unitInfo.getPlate());
-            if(foundUnit != null) {
-                return new ResponseEntity<>(
-                        new MessageDTO("Esta unidad ya existe"),
-                        HttpStatus.BAD_REQUEST
-                );
-            }
-
+            
             unitService.createUnits(unitInfo);
 
             return new ResponseEntity<>(
-                    new MessageDTO("Usuario Registrado"),
+                    new MessageDTO("Unidad Registrada"),
                     HttpStatus.CREATED
             );
 
