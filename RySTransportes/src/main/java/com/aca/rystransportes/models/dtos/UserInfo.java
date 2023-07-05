@@ -1,55 +1,48 @@
-package com.aca.rystransportes.models.entities;
+package com.aca.rystransportes.models.dtos;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 
-import java.io.Serializable;
 import java.util.Date;
 
-@Entity
-@Table(name = "users")
-public class User {
+public class UserInfo {
 
-    @Id
-    @Column(name = "dui")
-    String dui;
+    @NotBlank
+    private String dui;
 
-    @Column(name = "name")
-    String name;
+    @NotBlank
+    private String name;
+    @NotBlank
+    private String password;
 
-    @Column(name = "password")
-    String password;
+    @NotBlank
+    private String nit;
 
-    @Column(name = "nit")
-    String nit;
+    @NotBlank
+    private String rol;
 
-    @Column(name = "rol")
-    String rol;
+    @NotBlank
+    private String phone;
 
-    @Column(name = "phone")
-    String phone;
+    @NotBlank
+    private Date startdate;
 
-    @Column(name = "startdate", insertable = false, updatable = false)
-    Date startdate;
+    @NotBlank
+    @Pattern(regexp = "^[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+$")
+    private String email;
 
-    @Column(name = "email")
-    String email;
-
-    @Column(name = "address")
-    String address;
+    @NotBlank
+    private String address;
 
     //Constructors
 
-
-    public User() {
+    public UserInfo() {
         super();
     }
 
-    public User(String dui, String name, String password,
-                String nit, String rol, String phone, Date startdate,
-                String email, String address) {
+    public UserInfo(String dui, String name, String password,
+                    String nit, String rol, String phone, Date startdate,
+                    String email, String address) {
         super();
         this.dui = dui;
         this.name = name;
@@ -62,7 +55,8 @@ public class User {
         this.address = address;
     }
 
-    // Getters and setters
+    //Getters and setters
+
     public String getDui() {
         return dui;
     }

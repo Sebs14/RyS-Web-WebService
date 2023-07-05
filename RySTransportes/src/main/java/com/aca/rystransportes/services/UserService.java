@@ -1,25 +1,19 @@
 package com.aca.rystransportes.services;
 
-import com.aca.rystransportes.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Service;
+import com.aca.rystransportes.models.dtos.UserInfo;
 import com.aca.rystransportes.models.entities.User;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
-@Service
 public interface UserService {
 
     public List<User> getAllUser();
 
-    public User getUserById(String dui);
-
-    public User createUser(User user);
-    public void deleteUser(String dui);
-
-    public User updateUser(User user);
-
-
+    void register(UserInfo userInfo) throws Exception;
+    List<User> findAll() throws Exception;
+    User findOneByEmail(String email) throws Exception;
+    Boolean comparePassword(User user, String passToCompare) throws Exception;
+    void insertToken(User user, String token) throws Exception;
+    Boolean isTokenValid(User user, String token) throws Exception;
+    User getUserAuthenticated() throws Exception;
 }
