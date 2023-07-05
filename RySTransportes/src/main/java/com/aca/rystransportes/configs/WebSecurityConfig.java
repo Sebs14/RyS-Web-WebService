@@ -46,10 +46,8 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests((authorizeHttpRequests) ->
                         authorizeHttpRequests
                                 .requestMatchers("/auth/**").permitAll()
-                                .requestMatchers("/auth/signin").permitAll()
                                 .requestMatchers("/").permitAll()
                                 .requestMatchers("/error").permitAll()
-                                .requestMatchers("/user/**").permitAll()
                                 .requestMatchers(HttpMethod.OPTIONS).permitAll()
                                 .anyRequest().authenticated());
 

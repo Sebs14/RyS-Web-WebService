@@ -15,8 +15,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -27,6 +25,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private UserRepository userService;
 
     @Autowired
     private TokenRepository tokenRepository;
@@ -64,12 +65,10 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll();
     }
 
+
     @Override
     public User findOneByEmail(String email) throws Exception {
-        User foundUser = userRepository
-                .findOneByEmail(email);
-
-        return foundUser;
+        return userRepository.findOneByEmail(email);
     }
 
     @Override

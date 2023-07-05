@@ -41,8 +41,6 @@ public class User {
     String address;
 
     //Constructors
-
-
     public User() {
         super();
     }

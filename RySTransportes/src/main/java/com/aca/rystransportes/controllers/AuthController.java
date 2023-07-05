@@ -23,6 +23,9 @@ public class AuthController {
     UserService userService;
 
     @Autowired
+    UserService userRepository;
+
+    @Autowired
     private TokenManager tokenManager;
 
     @PostMapping("/signup")
@@ -74,6 +77,8 @@ public class AuthController {
             }
 
             User user = userService.findOneByEmail(loginInfo.getIdentifier());
+            System.out.println(loginInfo.getIdentifier());
+            System.out.println(user);
 
             if(!userService.comparePassword(user, loginInfo.getPassword())) {
                 return new ResponseEntity<>(
