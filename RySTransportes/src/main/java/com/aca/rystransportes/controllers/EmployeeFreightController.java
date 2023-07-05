@@ -17,16 +17,16 @@ import java.util.List;
 @RequestMapping("/empfreight")
 public class EmployeeFreightController {
     @Autowired
-    EmployeeFreightServiceImpl userService;
+    EmployeeFreightServiceImpl employeeFreightService;
 
     @GetMapping()
     public List<EmployeeFreight> showEmployeeFreight() {
-        return userService.getAllEmployeeFreight();
+        return employeeFreightService.getAllEmployeeFreight();
     }
 
     @GetMapping("/{id}")
     public EmployeeFreight getEmployeeFreight(@PathVariable Integer id) {
-        return userService.getEmployeeFreightById(id);
+        return employeeFreightService.getEmployeeFreightById(id);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
@@ -42,7 +42,8 @@ public class EmployeeFreightController {
                         HttpStatus.BAD_REQUEST
                 );
             }
-            userService.createEmployeeFreight(empFreightInfo);
+
+            employeeFreightService.createEmployeeFreight(empFreightInfo);
 
             return new ResponseEntity<>(
                     new MessageDTO("Usuario Registrado"),
@@ -59,12 +60,12 @@ public class EmployeeFreightController {
 
     @PutMapping()
     public EmployeeFreight updateEmployeeFreight(@RequestBody EmployeeFreight user) {
-        return userService.updateEmployeeFreight(user);
+        return employeeFreightService.updateEmployeeFreight(user);
     }
 
     @DeleteMapping(value = "{id}")
     public @ResponseBody String deleteEmployeeFreight(@PathVariable("id")  Integer id ) {
-        userService.deleteEmployeeFreight(id);
+        employeeFreightService.deleteEmployeeFreight(id);
         return null;
     }
 }

@@ -1,36 +1,28 @@
-package com.aca.rystransportes.models.entities;
+package com.aca.rystransportes.models.dtos;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 
-import java.io.Serializable;
+public class UnitInfo {
 
-@Entity
-@Table(name = "units")
-public class Units implements Serializable
-{
-    @Id
-    @Column(name = "plate")
+    @NotBlank
     String plate;
 
-    @Column(name = "brand")
+    @NotBlank
     String brand;
 
-    @Column(name = "model")
+    @NotBlank
     String model;
 
-    @Column(name = "gpsid")
+    @NotBlank
     String gpsid;
 
     //Constructors
-    public Units() {
+
+    public UnitInfo() {
         super();
     }
 
-    public Units(String plate, String brand, String model, String gpsid) {
-        super();
+    public UnitInfo(String plate, String brand, String model, String gpsid) {
         this.plate = plate;
         this.brand = brand;
         this.model = model;

@@ -3,6 +3,7 @@ package com.aca.rystransportes.services;
 import com.aca.rystransportes.models.dtos.EmpFreightInfo;
 import com.aca.rystransportes.models.entities.EmployeeFreight;
 import com.aca.rystransportes.models.entities.EmployeeFreight;
+import com.aca.rystransportes.models.entities.Freights;
 import com.aca.rystransportes.repositories.EmployeeFreightRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +15,6 @@ import java.util.List;
 @Service
 public interface EmployeeFreightService {
     public List<EmployeeFreight> getAllEmployeeFreight();
-
     public EmployeeFreight getEmployeeFreightById(Integer id);
 
     void createEmployeeFreight(EmpFreightInfo empFreightInfo) throws Exception;

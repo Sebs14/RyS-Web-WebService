@@ -1,5 +1,6 @@
 package com.aca.rystransportes.services.impls;
 
+import com.aca.rystransportes.models.dtos.UnitInfo;
 import com.aca.rystransportes.models.entities.Units;
 import com.aca.rystransportes.repositories.UnitsRepository;
 import com.aca.rystransportes.services.UnitsService;
@@ -27,8 +28,15 @@ public class UnitServiceImpl implements UnitsService {
     }
 
     @Override
-    public Units CreateUnits(Units units) {
-        return unitsRepository.save(units);
+    public void createUnits(UnitInfo unitInfo) throws Exception{
+        Units units = new Units();
+
+        units.setPlate(unitInfo.getPlate());
+        units.setBrand(unitInfo.getBrand());
+        units.setModel(unitInfo.getModel());
+        units.setGpsid(unitInfo.getGpsid());
+
+        unitsRepository.save(units);
     }
 
     @Override
