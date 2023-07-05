@@ -1,5 +1,6 @@
 package com.aca.rystransportes.services;
 
+import com.aca.rystransportes.models.dtos.FreightsDTO;
 import com.aca.rystransportes.models.entities.Freights;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +12,9 @@ public interface FreightsService {
 
     public List<Freights> getAllFreights();
 
-    public Freights createFreights(Freights freights);
+    public void createFreights(FreightsDTO freights)  throws Exception;
 
-    public Freights updateFreights(Freights freights);
+    public void updateFreights(FreightsDTO freights)  throws Exception;
 
     public void deleteFreights(Integer id);
 

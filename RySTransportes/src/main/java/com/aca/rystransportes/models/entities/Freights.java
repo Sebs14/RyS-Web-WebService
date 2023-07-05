@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+
 @Entity
 @Table(name = "freights")
 public class Freights implements Serializable{
@@ -14,33 +15,57 @@ public class Freights implements Serializable{
 
     @Id
     @Column(name = "idfreight")
+    @SequenceGenerator(name = "freights_idfreight_seq", sequenceName = "freights_idfreight_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "freights_idfreight_seq")
     Integer idFreight;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnore
-    @JoinColumns({@JoinColumn(name = "idclient", referencedColumnName = "idclient")})
+    @JoinColumn(name = "client", referencedColumnName = "idclient", nullable = true)
     Clients clients;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnore
-    @JoinColumns({@JoinColumn(name ="unit", referencedColumnName = "plate")})
+    @JoinColumn(name ="unit", referencedColumnName = "plate", nullable = true)
     Units units;
 
+    @Column(name = "freightdate")
     Date date;
 
-    String client;
-
+    @Column(name = "tonage")
     String tonage;
 
+    @Column(name = "destination")
     String destination;
 
+    @Column(name = "freighttype")
     String type;
 
+    @Column(name = "shipmentnum")
     String shipment;
 
+    @Column(name = "comments")
     String comments;
+    
+    public Clients getClients() {
+		return clients;
+	}
 
-    public Integer getIdFreight() {
+	public void setClients(Clients clients) {
+		this.clients = clients;
+	}
+
+	public Units getUnits() {
+		return units;
+	}
+
+	public void setUnits(Units units) {
+		this.units = units;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public Integer getIdFreight() {
         return idFreight;
     }
 
@@ -54,14 +79,6 @@ public class Freights implements Serializable{
 
     public void setDate(Date date) {
         this.date = date;
-    }
-
-    public String getClient() {
-        return client;
-    }
-
-    public void setClient(String client) {
-        this.client = client;
     }
 
     public String getTonage() {
