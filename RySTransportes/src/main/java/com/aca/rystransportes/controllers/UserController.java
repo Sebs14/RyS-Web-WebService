@@ -1,6 +1,5 @@
 package com.aca.rystransportes.controllers;
 
-import com.aca.rystransportes.services.UserService;
 import com.aca.rystransportes.services.impls.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
