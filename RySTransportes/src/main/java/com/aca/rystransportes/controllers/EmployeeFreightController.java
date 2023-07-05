@@ -1,9 +1,14 @@
 package com.aca.rystransportes.controllers;
 
+import com.aca.rystransportes.models.dtos.EmpFreightInfo;
+import com.aca.rystransportes.models.dtos.MessageDTO;
 import com.aca.rystransportes.models.entities.EmployeeFreight;
+import com.aca.rystransportes.models.entities.User;
 import com.aca.rystransportes.services.impls.EmployeeFreightServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,8 +31,30 @@ public class EmployeeFreightController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping()
-    public EmployeeFreight createEmployeeFreight(@RequestBody EmployeeFreight user) {
-        return userService.createEmployeeFreight(user);
+    public ResponseEntity<MessageDTO> createEmployeeFreight(EmpFreightInfo empFreightInfo, BindingResult result) {
+        try {
+            if(result.hasErrors()) {
+                String errors = result.getAllErrors().toString();
+
+
+                return new ResponseEntity<>(
+                        new MessageDTO("Hay errores: " + errors),
+                        HttpStatus.BAD_REQUEST
+                );
+            }
+            userService.createEmployeeFreight(empFreightInfo);
+
+            return new ResponseEntity<>(
+                    new MessageDTO("Usuario Registrado"),
+                    HttpStatus.CREATED
+            );
+
+        } catch (Exception e) {
+            return new ResponseEntity<>(
+                    new MessageDTO("Error interno"),
+                    HttpStatus.INTERNAL_SERVER_ERROR
+            );
+        }
     }
 
     @PutMapping()
