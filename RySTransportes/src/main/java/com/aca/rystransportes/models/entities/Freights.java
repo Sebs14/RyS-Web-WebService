@@ -20,10 +20,12 @@ public class Freights implements Serializable{
     Integer idFreight;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore 
     @JoinColumn(name = "client", referencedColumnName = "idclient", nullable = true)
     Clients clients;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore 
     @JoinColumn(name ="unit", referencedColumnName = "plate", nullable = true)
     Units units;
 
