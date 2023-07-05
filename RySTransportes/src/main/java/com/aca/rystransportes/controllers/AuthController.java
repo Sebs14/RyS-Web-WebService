@@ -41,9 +41,7 @@ public class AuthController {
                 );
             }
 
-            User foundUser = userService
-                    .findOneByEmail(userInfo.getEmail());
-            System.out.println(foundUser);
+            User foundUser = userService.findOneByEmail(userInfo.getEmail());
             if(foundUser != null) {
                 return new ResponseEntity<>(
                         new MessageDTO("Este usuario ya existe"),
@@ -77,8 +75,6 @@ public class AuthController {
             }
 
             User user = userService.findOneByEmail(loginInfo.getIdentifier());
-            System.out.println(loginInfo.getIdentifier());
-            System.out.println(user);
 
             if(!userService.comparePassword(user, loginInfo.getPassword())) {
                 return new ResponseEntity<>(

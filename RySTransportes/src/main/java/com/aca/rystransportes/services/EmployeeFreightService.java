@@ -1,5 +1,6 @@
 package com.aca.rystransportes.services;
 
+import com.aca.rystransportes.models.dtos.EmpFreightInfo;
 import com.aca.rystransportes.models.entities.EmployeeFreight;
 import com.aca.rystransportes.models.entities.EmployeeFreight;
 import com.aca.rystransportes.repositories.EmployeeFreightRepository;
@@ -16,7 +17,7 @@ public interface EmployeeFreightService {
 
     public EmployeeFreight getEmployeeFreightById(Integer id);
 
-    public EmployeeFreight createEmployeeFreight(EmployeeFreight employeeFreight);
+    void createEmployeeFreight(EmpFreightInfo empFreightInfo) throws Exception;
     public void deleteEmployeeFreight(Integer id);
 
     public EmployeeFreight updateEmployeeFreight(EmployeeFreight employeeFreight);
