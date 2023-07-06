@@ -1,1 +1,5 @@
 # RyS-Web-Service
+
+## Encargados de desarrollo de Backend:
+#00103719 RICARDO JOSE MENDEZ,
+#00136419 ANDRES ENRIQUE LOPEZ RODRIGUEZ
